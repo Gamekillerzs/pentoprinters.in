@@ -1,5 +1,5 @@
-function scrollToContact() {
-    document.getElementById("contact").scrollIntoView({
+function scrollToOrder() {
+    document.getElementById("order").scrollIntoView({
         behavior: "smooth"
     });
 }
