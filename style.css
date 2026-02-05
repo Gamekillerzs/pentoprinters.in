@@ -15,7 +15,6 @@ body {
 /* NAVBAR */
 .navbar {
     background: #0f0f0f;
-    color: white;
     padding: 20px 60px;
     display: flex;
     justify-content: space-between;
@@ -40,9 +39,8 @@ body {
 
 .navbar a {
     color: white;
-    margin-left: 25px;
     text-decoration: none;
-    font-size: 14px;
+    margin-left: 20px;
 }
 
 .cta {
@@ -102,7 +100,7 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* ORDER FORM */
+/* FORM */
 .order-form {
     max-width: 650px;
     margin: 40px auto;
@@ -119,12 +117,6 @@ body {
     border-radius: 6px;
 }
 
-.upload-label {
-    font-size: 13px;
-    color: #444;
-    text-align: left;
-}
-
 .order-form button {
     background: #c9a24d;
     border: none;
@@ -132,12 +124,12 @@ body {
     cursor: pointer;
 }
 
-/* CONTACT + FOOTER */
-.contact {
-    background: #111;
-    color: white;
+.upload-label {
+    text-align: left;
+    font-size: 13px;
 }
 
+/* FOOTER */
 footer {
     background: #000;
     color: #aaa;
@@ -148,4 +140,13 @@ footer {
 .footer-logo {
     height: 40px;
     margin-bottom: 10px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 28px;
+    background: #c9a24d;
+    color: black;
+    text-decoration: none;
 }

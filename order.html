@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Work Order | Pen to Printers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="section">
+    <h2 class="section-title">Upload Printing / Work Order</h2>
+    <p class="section-text">
+        Upload your artwork and provide printing details.
+        Our team will contact you shortly.
+    </p>
+
+    <!-- 🔴 REPLACE EMAIL BELOW -->
+    <form class="order-form"
+          action="https://formsubmit.co/YOUR_EMAIL@gmail.com"
+          method="POST"
+          enctype="multipart/form-data">
+
+        <input type="hidden" name="_subject" value="New Printing Work Order">
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- ✅ Redirect after submit -->
+        <input type="hidden" name="_next"
+        value="https://gamekillerzs.github.io/pentoprinters.in/thankyou.html">
+
+        <input type="text" name="Name" placeholder="Full Name" required>
+        <input type="email" name="Email" placeholder="Email Address" required>
+        <input type="tel" name="Phone" placeholder="Phone / WhatsApp" required>
+
+        <select name="Print Type" required>
+            <option value="">Select Printing Type</option>
+            <option>Business Cards</option>
+            <option>Wedding Cards</option>
+            <option>Brochure / Magazine</option>
+            <option>Poster / Banner</option>
+            <option>Packaging / Boxes</option>
+            <option>Other</option>
+        </select>
+
+        <textarea name="Details" rows="5"
+        placeholder="Size, quantity, paper type, finishing, delivery date..."
+        required></textarea>
+
+        <label class="upload-label">
+            Upload Artwork (PDF / JPG / PNG / DOC)
+        </label>
+
+        <input type="file"
+               name="files"
+               accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+               multiple
+               required>
+
+        <button type="submit">Submit Work Order</button>
+    </form>
+</section>
+
+</body>
+</html>
