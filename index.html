@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Pen to Printers | Premium Printing Solutions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pen to Printers | Premium Printing & Stationery</title>
     <link rel="icon" href="logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,87 +17,38 @@
             <span>PRINT • PAPER • SOLUTIONS</span>
         </div>
     </div>
-
     <nav>
         <a href="#services">Services</a>
-        <a href="#order">Upload Order</a>
-        <a href="#contact" class="cta">Contact</a>
+        <a href="order.html" class="cta">Upload Order</a>
     </nav>
 </header>
 
 <section class="hero">
-    <h2>Upload Your Printing Work Online</h2>
-    <p>Send artwork, documents, and requirements directly through our website.</p>
-    <button onclick="scrollToOrder()">Upload Work Order</button>
+    <h2>Turning Ideas Into Lasting Impressions</h2>
+    <p>Premium printing & stationery solutions for businesses and individuals.</p>
+    <a href="order.html"><button>Place Work Order</button></a>
 </section>
 
 <section id="services" class="section">
-    <h2 class="section-title">What We Print</h2>
+    <h2 class="section-title">Our Services</h2>
     <div class="grid">
         <div class="card">Business Cards</div>
         <div class="card">Wedding Cards</div>
         <div class="card">Brochures & Magazines</div>
         <div class="card">Posters & Banners</div>
-        <div class="card">Packaging & Boxes</div>
-        <div class="card">Canvas & Photo Frames</div>
+        <div class="card">Custom Boxes & Packaging</div>
+        <div class="card">Carry Bags & Envelopes</div>
+        <div class="card">Canvas Prints & Photo Frames</div>
+        <div class="card">Bulk & Urgent Printing</div>
     </div>
 </section>
 
-<!-- ================= UPLOAD ORDER ================= -->
-<section id="order" class="section alt">
-    <h2 class="section-title">Upload Printing / Work Order</h2>
+<section class="section alt">
+    <h2 class="section-title">Paper & Stationery Trading</h2>
     <p class="section-text">
-        Upload your document or design file and mention printing details.
-        Our team will contact you for confirmation.
+        All paper sizes, all paper types, and all major brands available.
+        Office, school, and corporate stationery supplied.
     </p>
-
-    <!-- 🔴 REPLACE EMAIL -->
-    <form class="order-form"
-          action="https://formsubmit.co/YOUR_EMAIL@gmail.com"
-          method="POST"
-          enctype="multipart/form-data">
-
-        <input type="hidden" name="_subject" value="New Printing Work Order">
-        <input type="hidden" name="_captcha" value="false">
-
-        <input type="text" name="Customer Name" placeholder="Full Name" required>
-        <input type="email" name="Email" placeholder="Email Address" required>
-        <input type="tel" name="Phone" placeholder="Phone / WhatsApp" required>
-
-        <select name="Printing Type" required>
-            <option value="">Select Printing Type</option>
-            <option>Business Cards</option>
-            <option>Wedding Cards</option>
-            <option>Brochure / Magazine</option>
-            <option>Poster / Banner</option>
-            <option>Packaging / Boxes</option>
-            <option>Other</option>
-        </select>
-
-        <textarea name="Printing Details" rows="5"
-            placeholder="Size, quantity, paper type, lamination, delivery date..."
-            required></textarea>
-
-        <label class="upload-label">
-            Upload Artwork / Document (PDF, JPG, PNG, DOC)
-        </label>
-
-        <!-- ✅ MULTIPLE FILE UPLOAD -->
-        <input type="file"
-               name="files"
-               accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
-               multiple
-               required>
-
-        <button type="submit">Submit Work Order</button>
-    </form>
-</section>
-
-<section id="contact" class="section contact">
-    <h2 class="section-title">Contact Us</h2>
-    <p>📞 +91-9814741828</p>
-    <p>📧 pentoprinters@gmail.com</p>
-    <p>📍 Patiala, Punjab, India</p>
 </section>
 
 <footer>
@@ -105,7 +56,5 @@
     <p>© 2026 Pen to Printers. Crafted with precision.</p>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
-
