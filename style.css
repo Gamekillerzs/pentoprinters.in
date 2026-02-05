@@ -12,6 +12,7 @@ body {
     color: #222;
 }
 
+/* NAVBAR */
 .navbar {
     background: #0f0f0f;
     color: white;
@@ -21,14 +22,20 @@ body {
     align-items: center;
 }
 
-.brand h1 {
-    font-size: 26px;
-    letter-spacing: 1px;
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
 
-.brand span {
-    font-size: 12px;
+.logo {
+    height: 50px;
+}
+
+.brand-text span {
+    font-size: 11px;
     color: #c9a24d;
+    letter-spacing: 2px;
 }
 
 .navbar a {
@@ -38,11 +45,12 @@ body {
     font-size: 14px;
 }
 
-.navbar .cta {
-    padding: 8px 16px;
+.cta {
     border: 1px solid #c9a24d;
+    padding: 8px 16px;
 }
 
+/* HERO */
 .hero {
     background: linear-gradient(to right, #000, #222);
     color: white;
@@ -50,30 +58,22 @@ body {
     text-align: center;
 }
 
-.hero h2 {
-    font-size: 42px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    max-width: 700px;
-    margin: auto;
-    font-size: 16px;
-    color: #ddd;
-}
-
 .hero button {
     margin-top: 30px;
     padding: 14px 32px;
     background: #c9a24d;
     border: none;
-    font-size: 15px;
     cursor: pointer;
 }
 
+/* SECTIONS */
 .section {
     padding: 80px 60px;
     text-align: center;
+}
+
+.alt {
+    background: #f1f1f1;
 }
 
 .section-title {
@@ -82,18 +82,15 @@ body {
 }
 
 .section-text {
-    max-width: 800px;
+    max-width: 700px;
     margin: auto;
     color: #555;
 }
 
-.alt {
-    background: #f1f1f1;
-}
-
+/* GRID */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
     margin-top: 40px;
 }
@@ -103,23 +100,39 @@ body {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    transition: transform 0.3s;
 }
 
-.card:hover {
-    transform: translateY(-8px);
+/* ORDER FORM */
+.order-form {
+    max-width: 650px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.list {
-    max-width: 600px;
-    margin: 30px auto;
+.order-form input,
+.order-form select,
+.order-form textarea {
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.upload-label {
+    font-size: 13px;
+    color: #444;
     text-align: left;
 }
 
-.list li {
-    margin-bottom: 10px;
+.order-form button {
+    background: #c9a24d;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
 }
 
+/* CONTACT + FOOTER */
 .contact {
     background: #111;
     color: white;
@@ -129,6 +142,10 @@ footer {
     background: #000;
     color: #aaa;
     text-align: center;
-    padding: 20px;
-    font-size: 13px;
+    padding: 25px;
+}
+
+.footer-logo {
+    height: 40px;
+    margin-bottom: 10px;
 }
