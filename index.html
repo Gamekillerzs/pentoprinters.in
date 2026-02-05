@@ -4,91 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pen to Printers | Premium Printing & Stationery</title>
+    <link rel="icon" href="logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="navbar">
     <div class="brand">
-        <img src="logo.png" alt="Pen to Printers Logo" class="logo">
+        <img src="logo.png" class="logo">
         <div class="brand-text">
             <h1>Pen to Printers</h1>
-            <span>Print • Paper • Solutions</span>
+            <span>PRINT • PAPER • SOLUTIONS</span>
         </div>
     </div>
 
     <nav>
         <a href="#services">Services</a>
-        <a href="#stationery">Stationery</a>
-        <a href="#about">About</a>
+        <a href="#order">Upload Order</a>
         <a href="#contact" class="cta">Contact</a>
     </nav>
 </header>
 
 <section class="hero">
-    <div class="hero-content">
-        <h2>Turning Ideas Into Lasting Impressions</h2>
-        <p>
-            High-quality printing, premium paper, and complete stationery solutions —
-            crafted with precision and care.
-        </p>
-        <button onclick="scrollToContact()">Request a Quote</button>
-    </div>
+    <h2>Upload Your Printing Work Online</h2>
+    <p>Send artwork, documents, and requirements directly through our website.</p>
+    <button onclick="scrollToOrder()">Upload Work Order</button>
 </section>
 
 <section id="services" class="section">
-    <h2 class="section-title">Our Printing Expertise</h2>
+    <h2 class="section-title">What We Print</h2>
     <div class="grid">
+        <div class="card">Business Cards</div>
+        <div class="card">Wedding Cards</div>
         <div class="card">Brochures & Magazines</div>
-        <div class="card">Posters, Banners & Displays</div>
-        <div class="card">Wedding Cards & Invitations</div>
-        <div class="card">Business Cards & Corporate Branding</div>
-        <div class="card">Custom Boxes & Packaging</div>
-        <div class="card">Envelopes & Carry Bags</div>
-        <div class="card">Canvas Prints & Photo Frames</div>
-        <div class="card">Bulk & Wholesale Printing</div>
-        <div class="card">Express & Urgent Printing</div>
+        <div class="card">Posters & Banners</div>
+        <div class="card">Packaging & Boxes</div>
+        <div class="card">Canvas & Photo Frames</div>
     </div>
 </section>
 
-<section id="stationery" class="section alt">
-    <h2 class="section-title">Stationery & Paper Trading</h2>
+<!-- ================= UPLOAD ORDER ================= -->
+<section id="order" class="section alt">
+    <h2 class="section-title">Upload Printing / Work Order</h2>
     <p class="section-text">
-        We deal in a wide range of stationery items and premium papers to meet
-        every professional and creative requirement.
+        Upload your document or design file and mention printing details.
+        Our team will contact you for confirmation.
     </p>
-    <ul class="list">
-        <li>All paper sizes – A4, A3, Legal & Custom</li>
-        <li>Art, Bond, Glossy, Matte, Textured & Handmade papers</li>
-        <li>All major Indian & international paper brands</li>
-        <li>Eco-friendly & recycled paper options</li>
-        <li>Office, school & corporate stationery supplies</li>
-    </ul>
-</section>
 
-<section id="about" class="section">
-    <h2 class="section-title">Why Pen to Printers?</h2>
-    <p class="section-text">
-        Pen to Printers is a trusted name in printing and paper trading,
-        delivering consistent quality, sharp finishes, and dependable service.
-        From single orders to bulk requirements, we bring professionalism
-        to every print.
-    </p>
+    <!-- 🔴 REPLACE EMAIL -->
+    <form class="order-form"
+          action="https://formsubmit.co/YOUR_EMAIL@gmail.com"
+          method="POST"
+          enctype="multipart/form-data">
+
+        <input type="hidden" name="_subject" value="New Printing Work Order">
+        <input type="hidden" name="_captcha" value="false">
+
+        <input type="text" name="Customer Name" placeholder="Full Name" required>
+        <input type="email" name="Email" placeholder="Email Address" required>
+        <input type="tel" name="Phone" placeholder="Phone / WhatsApp" required>
+
+        <select name="Printing Type" required>
+            <option value="">Select Printing Type</option>
+            <option>Business Cards</option>
+            <option>Wedding Cards</option>
+            <option>Brochure / Magazine</option>
+            <option>Poster / Banner</option>
+            <option>Packaging / Boxes</option>
+            <option>Other</option>
+        </select>
+
+        <textarea name="Printing Details" rows="5"
+            placeholder="Size, quantity, paper type, lamination, delivery date..."
+            required></textarea>
+
+        <label class="upload-label">
+            Upload Artwork / Document (PDF, JPG, PNG, DOC)
+        </label>
+
+        <!-- ✅ MULTIPLE FILE UPLOAD -->
+        <input type="file"
+               name="files"
+               accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+               multiple
+               required>
+
+        <button type="submit">Submit Work Order</button>
+    </form>
 </section>
 
 <section id="contact" class="section contact">
-    <h2 class="section-title">Let’s Print Something Great</h2>
+    <h2 class="section-title">Contact Us</h2>
     <p>📞 +91-9814741828</p>
     <p>📧 pentoprinters@gmail.com</p>
-    <p>📍 Patiala, Punjab</p>
+    <p>📍 Patiala, Punjab, India</p>
 </section>
 
 <footer>
+    <img src="logo.png" class="footer-logo">
     <p>© 2026 Pen to Printers. Crafted with precision.</p>
 </footer>
 
 <script src="script.js"></script>
 </body>
 </html>
-
-
