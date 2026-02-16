@@ -2,59 +2,215 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pen to Printers | Premium Printing Solutions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="logo.png">
-    <link rel="stylesheet" href="style.css">
+    <title>Pen to Printers | Premium Printing in Patiala</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cmykCyan: '#009FE3',
+                        cmykMagenta: '#E6007E',
+                        cmykYellow: '#FFED00',
+                        cmykBlack: '#1A1A1A',
+                        premiumGold: '#C5A059',
+                        darkBlue: '#0f172a',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Lato', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #C5A059, #E6007E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-<header class="navbar">
-    <div class="brand">
-        <img src="logo.png" class="logo">
-        <div class="brand-text">
-            <h1>Pen to Printers</h1>
-            <span>PRINT • PAPER • SOLUTIONS</span>
+    <nav class="bg-darkBlue text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-print text-cmykMagenta text-2xl"></i>
+                <span class="text-2xl font-bold tracking-wide">Pen to <span class="text-premiumGold">Printers</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-semibold">
+                <a href="#services" class="hover:text-cmykCyan transition">Services</a>
+                <a href="#about" class="hover:text-cmykMagenta transition">About Us</a>
+                <a href="#contact" class="hover:text-cmykYellow transition">Contact</a>
+            </div>
+            <a href="#contact" class="md:hidden bg-premiumGold text-black px-4 py-2 rounded font-bold">Call Us</a>
         </div>
-    </div>
-    <nav>
-        <a href="#services">Services</a>
-        <a href="order.html" class="cta">Upload Order</a>
     </nav>
-</header>
 
-<section class="hero">
-    <h2>Turning Ideas Into Lasting Impressions</h2>
-    <p>Premium printing & stationery solutions for businesses and individuals.</p>
-    <a href="order.html"><button>Place Work Order</button></a>
-</section>
+    <header class="relative bg-gray-900 h-[600px] flex items-center justify-center text-center overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900"></div>
 
-<section id="services" class="section">
-    <h2 class="section-title">Our Services</h2>
-    <div class="grid">
-        <div class="card">Business Cards</div>
-        <div class="card">Wedding Cards</div>
-        <div class="card">Brochures & Magazines</div>
-        <div class="card">Posters & Banners</div>
-        <div class="card">Custom Boxes & Packaging</div>
-        <div class="card">Carry Bags & Envelopes</div>
-        <div class="card">Canvas Prints & Photo Frames</div>
-        <div class="card">Bulk & Urgent Printing</div>
-    </div>
-</section>
+        <div class="relative z-10 px-6">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-4">
+                Print Your <span class="text-cmykCyan">Imagination</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 font-light">
+                Patiala's Premium Printing, Packaging & Paper Trading Hub
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="https://wa.me/919855940345" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-bold text-lg transition shadow-lg flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us
+                </a>
+                <a href="tel:+919814741828" class="bg-premiumGold hover:bg-yellow-600 text-black px-8 py-3 rounded-full font-bold text-lg transition shadow-lg flex items-center justify-center gap-2">
+                    <i class="fas fa-phone-alt"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </header>
 
-<section class="section alt">
-    <h2 class="section-title">Paper & Stationery Trading</h2>
-    <p class="section-text">
-        All paper sizes, all paper types, and all major brands available.
-        Office, school, and corporate stationery supplied.
-    </p>
-</section>
+    <section id="services" class="py-20 container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-darkBlue mb-4">Our Services</h2>
+            <div class="h-1 w-24 bg-gradient-to-r from-cmykCyan via-cmykMagenta to-cmykYellow mx-auto"></div>
+            <p class="mt-4 text-gray-600">From corporate stationery to custom packaging, we handle it all with precision.</p>
+        </div>
 
-<footer>
-    <img src="logo.png" class="footer-logo">
-    <p>© 2026 Pen to Printers. Crafted with precision.</p>
-</footer>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="service-card bg-white p-8 rounded-xl border-t-4 border-cmykCyan shadow-md transition duration-300">
+                <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6 text-cmykCyan text-2xl"><i class="fas fa-book-open"></i></div>
+                <h3 class="text-xl font-bold mb-2">Brochures & Magazines</h3>
+                <p class="text-gray-500 text-sm">High-quality multi-page printing for your business literature.</p>
+            </div>
+
+            <div class="service-card bg-white p-8 rounded-xl border-t-4 border-cmykMagenta shadow-md transition duration-300">
+                <div class="w-14 h-14 bg-pink-100 rounded-full flex items-center justify-center mb-6 text-cmykMagenta text-2xl"><i class="fas fa-heart"></i></div>
+                <h3 class="text-xl font-bold mb-2">Wedding Cards</h3>
+                <p class="text-gray-500 text-sm">Elegant, premium designs for your special day.</p>
+            </div>
+
+            <div class="service-card bg-white p-8 rounded-xl border-t-4 border-cmykYellow shadow-md transition duration-300">
+                <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mb-6 text-yellow-600 text-2xl"><i class="fas fa-box-open"></i></div>
+                <h3 class="text-xl font-bold mb-2">Custom Boxes & Bags</h3>
+                <p class="text-gray-500 text-sm">Packaging solutions, custom boxes, and carry bags.</p>
+            </div>
+
+            <div class="service-card bg-white p-8 rounded-xl border-t-4 border-gray-800 shadow-md transition duration-300">
+                <div class="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center mb-6 text-gray-800 text-2xl"><i class="fas fa-id-card"></i></div>
+                <h3 class="text-xl font-bold mb-2">Business Cards</h3>
+                <p class="text-gray-500 text-sm">Premium matte, gloss, and textured visiting cards.</p>
+            </div>
+
+            <div class="service-card bg-white p-8 rounded-xl border-t-4 border-purple-500 shadow-md transition duration-300">
+                <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mb-6 text-purple-500 text-2xl"><i class="fas fa-image"></i></div>
+                <h3 class="text-xl font-bold mb-2">Canvas & Frames</h3>
+                <p class="text-gray-500 text-sm">Canvas pictures and photo frames to capture memories.</p>
+            </div>
+
+            <div class="service-card bg-white p-8 rounded-xl border-t-4 border-red-500 shadow-md transition duration-300">
+                <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mb-6 text-red-500 text-2xl"><i class="fas fa-bullhorn"></i></div>
+                <h3 class="text-xl font-bold mb-2">Posters</h3>
+                <p class="text-gray-500 text-sm">Large format printing for events and advertising.</p>
+            </div>
+
+            <div class="service-card bg-white p-8 rounded-xl border-t-4 border-green-500 shadow-md transition duration-300">
+                <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-500 text-2xl"><i class="fas fa-scroll"></i></div>
+                <h3 class="text-xl font-bold mb-2">Paper Trading</h3>
+                <p class="text-gray-500 text-sm">Bulk paper trading and premium stationery supplies.</p>
+            </div>
+
+            <div class="service-card bg-white p-8 rounded-xl border-t-4 border-indigo-500 shadow-md transition duration-300">
+                <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-6 text-indigo-500 text-2xl"><i class="fas fa-envelope-open-text"></i></div>
+                <h3 class="text-xl font-bold mb-2">Envelopes</h3>
+                <p class="text-gray-500 text-sm">Custom printed envelopes in all standard sizes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="bg-darkBlue text-white py-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h2 class="text-4xl font-bold mb-6">Quality Printing in <span class="text-premiumGold">Patiala</span></h2>
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    At <strong>Pen to Printers</strong>, we believe that print is an art form. Located in the heart of Patiala, Punjab, we combine state-of-the-art technology with traditional craftsmanship. 
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    Whether you need a single custom photo frame or a bulk order of corporate magazines, we deliver vibrant colors, crisp text, and premium finishes every time.
+                </p>
+            </div>
+            <div class="md:w-1/2 md:pl-12 grid grid-cols-2 gap-4">
+                <div class="bg-gray-800 p-6 rounded-lg text-center">
+                    <i class="fas fa-palette text-cmykMagenta text-3xl mb-3"></i>
+                    <h4 class="font-bold">Vibrant Colors</h4>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg text-center">
+                    <i class="fas fa-clock text-cmykCyan text-3xl mb-3"></i>
+                    <h4 class="font-bold">Fast Delivery</h4>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg text-center">
+                    <i class="fas fa-rupee-sign text-cmykYellow text-3xl mb-3"></i>
+                    <h4 class="font-bold">Fair Pricing</h4>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg text-center">
+                    <i class="fas fa-star text-premiumGold text-3xl mb-3"></i>
+                    <h4 class="font-bold">Premium Paper</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-4xl font-bold text-darkBlue mb-2">Get In Touch</h2>
+            <p class="text-gray-600 mb-12">Ready to start your project? Contact us today.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm border border-gray-100">
+                    <i class="fas fa-phone-volume text-4xl text-darkBlue mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Call Us</h3>
+                    <p class="text-gray-500 mb-4">For immediate inquiries</p>
+                    <a href="tel:+919814741828" class="text-2xl font-bold text-premiumGold hover:underline">98147-41828</a>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm border border-gray-100">
+                    <i class="fab fa-whatsapp text-4xl text-green-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">WhatsApp</h3>
+                    <p class="text-gray-500 mb-4">Chat with us regarding designs</p>
+                    <div class="flex flex-col gap-2">
+                        <a href="https://wa.me/919855940345" class="text-lg font-bold text-green-600 hover:underline">Chat: 98559-40345</a>
+                        <a href="https://wa.me/919814741828" class="text-lg font-bold text-green-600 hover:underline">Chat: 98147-41828</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 p-6 bg-blue-50 rounded-lg">
+                <p class="text-darkBlue font-semibold"><i class="fas fa-map-marker-alt mr-2"></i> Serving Patiala, Punjab & Surrounding Areas</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-white py-8 border-t-4 border-premiumGold">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-2 font-serif text-xl">Pen to Printers</p>
+            <p class="text-gray-500 text-sm">&copy; 2024 Pen to Printers. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
