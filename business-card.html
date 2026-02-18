@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Business Cards | Pen to Printers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cmykCyan: '#009FE3',
+                        cmykMagenta: '#E6007E',
+                        cmykYellow: '#FFED00',
+                        premiumGold: '#C5A059',
+                        darkBlue: '#0f172a',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <nav class="bg-darkBlue text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 hover:opacity-80 transition">
+                <i class="fas fa-arrow-left text-premiumGold"></i>
+                <span class="font-bold uppercase tracking-widest text-sm">Back to Home</span>
+            </a>
+            <div class="text-xl font-serif font-bold">Pen to <span class="text-premiumGold">Printers</span></div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-12 max-w-4xl">
+        
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-darkBlue font-serif mb-2">Design Your Business Card</h1>
+            <p class="text-gray-500">Fill in the details below to place your order.</p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-10">
+            
+            <div class="w-full lg:w-2/3 bg-white p-8 rounded-xl shadow-md border-t-4 border-cmykMagenta">
+                <form id="orderForm" onsubmit="sendToWhatsapp(event)">
+                    
+                    <h3 class="text-xl font-bold text-darkBlue mb-4 flex items-center">
+                        <i class="fas fa-id-card-alt mr-2 text-premiumGold"></i> Card Information
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
+                            <input type="text" id="name" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold" placeholder="e.g. John Singh" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Job Title / Designation</label>
+                            <input type="text" id="designation" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold" placeholder="e.g. Managing Director">
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Company Name</label>
+                        <input type="text" id="company" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold" placeholder="e.g. Partap Trading Co.">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Phone Number to Print</label>
+                            <input type="tel" id="phone" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold" placeholder="+91 98XXX XXXXX">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold" placeholder="email@example.com">
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Office Address</label>
+                        <textarea id="address" rows="2" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold" placeholder="Shop No. 12, Patiala..."></textarea>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-darkBlue mb-4 flex items-center border-t pt-6">
+                        <i class="fas fa-print mr-2 text-cmykCyan"></i> Printing Preferences
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Paper Quality</label>
+                            <select id="paperType" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold">
+                                <option value="Standard Matte">Standard Matte</option>
+                                <option value="Premium Gloss">Premium Gloss</option>
+                                <option value="Textured Paper">Textured Paper</option>
+                                <option value="Gold Foil Accent">Gold Foil Accent</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Quantity</label>
+                            <select id="quantity" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold">
+                                <option value="100 Cards">100 Cards</option>
+                                <option value="200 Cards">200 Cards</option>
+                                <option value="500 Cards">500 Cards</option>
+                                <option value="1000 Cards">1000 Cards</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-lg shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                        <i class="fab fa-whatsapp text-2xl"></i> Send Order via WhatsApp
+                    </button>
+                    <p class="text-center text-xs text-gray-400 mt-3">You will be redirected to WhatsApp to send these details.</p>
+
+                </form>
+            </div>
+
+            <div class="w-full lg:w-1/3 space-y-6">
+                
+                <div class="bg-darkBlue text-white p-6 rounded-xl shadow-lg">
+                    <h4 class="font-serif text-xl font-bold mb-4 text-premiumGold">Next Steps</h4>
+                    <ol class="list-decimal list-inside space-y-3 text-sm text-gray-300">
+                        <li>Fill out the form details.</li>
+                        <li>Click the "Send Order" button.</li>
+                        <li>Attach your <strong>Logo File</strong> directly in the WhatsApp chat.</li>
+                        <li>We will send you a digital proof for approval.</li>
+                    </ol>
+                </div>
+
+                <div class="bg-gray-100 p-6 rounded-xl border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-2">Need Help?</h4>
+                    <p class="text-sm text-gray-600 mb-4">Call us if you have custom requirements.</p>
+                    <a href="tel:+919814741828" class="flex items-center text-darkBlue font-bold">
+                        <i class="fas fa-phone-alt mr-2"></i> 98147-41828
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendToWhatsapp(e) {
+            e.preventDefault();
+
+            // 1. Get Values
+            const name = document.getElementById('name').value;
+            const designation = document.getElementById('designation').value;
+            const company = document.getElementById('company').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const paperType = document.getElementById('paperType').value;
+            const quantity = document.getElementById('quantity').value;
+
+            // 2. Create Message
+            const message = `*New Business Card Order*%0A%0A` +
+                            `*Name:* ${name}%0A` +
+                            `*Role:* ${designation}%0A` +
+                            `*Company:* ${company}%0A` +
+                            `*Phone:* ${phone}%0A` +
+                            `*Email:* ${email}%0A` +
+                            `*Address:* ${address}%0A` +
+                            `------------------%0A` +
+                            `*Paper:* ${paperType}%0A` +
+                            `*Quantity:* ${quantity}%0A%0A` +
+                            `_(I will attach my logo image in the next message)_`;
+
+            // 3. Open WhatsApp
+            // Using your WhatsApp number: 9855940345
+            const whatsappUrl = `https://wa.me/919855940345?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+
+</body>
+</html>
