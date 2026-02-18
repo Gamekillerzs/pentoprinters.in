@@ -26,10 +26,16 @@
             }
         }
     </script>
+    <style>
+        .selected-card {
+            border: 4px solid #C5A059;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-    <nav class="bg-darkBlue text-white shadow-lg">
+    <nav class="bg-darkBlue text-white shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2 hover:opacity-80 transition">
                 <i class="fas fa-arrow-left text-premiumGold"></i>
@@ -39,22 +45,78 @@
         </div>
     </nav>
 
-    <div class="container mx-auto px-6 py-12 max-w-4xl">
+    <div class="container mx-auto px-6 py-10 max-w-6xl">
         
-        <div class="text-center mb-10">
-            <h1 class="text-4xl font-bold text-darkBlue font-serif mb-2">Design Your Business Card</h1>
-            <p class="text-gray-500">Fill in the details below to place your order.</p>
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-darkBlue font-serif mb-4">Choose Your Style</h1>
+            <p class="text-gray-500 text-lg">Select a design inspiration below, then fill out your details.</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-16">
+            <div onclick="selectStyle('Gold Foil Luxury')" class="cursor-pointer group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 card-option">
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=400&q=80" class="w-full h-40 object-cover group-hover:scale-110 transition duration-500" alt="Gold Foil">
+                <div class="absolute bottom-0 bg-black bg-opacity-70 w-full text-white text-center py-2 text-sm font-bold">1. Gold Foil Luxury</div>
+            </div>
+
+            <div onclick="selectStyle('Minimalist White')" class="cursor-pointer group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 card-option">
+                <img src="https://images.unsplash.com/photo-1593115057322-e94b77572f20?auto=format&fit=crop&w=400&q=80" class="w-full h-40 object-cover group-hover:scale-110 transition duration-500" alt="Minimalist">
+                <div class="absolute bottom-0 bg-black bg-opacity-70 w-full text-white text-center py-2 text-sm font-bold">2. Minimalist White</div>
+            </div>
+
+            <div onclick="selectStyle('Matte Black')" class="cursor-pointer group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 card-option">
+                <img src="https://images.unsplash.com/photo-1633534887568-7662c9545dc6?auto=format&fit=crop&w=400&q=80" class="w-full h-40 object-cover group-hover:scale-110 transition duration-500" alt="Dark Mode">
+                <div class="absolute bottom-0 bg-black bg-opacity-70 w-full text-white text-center py-2 text-sm font-bold">3. Matte Black</div>
+            </div>
+
+            <div onclick="selectStyle('Textured Paper')" class="cursor-pointer group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 card-option">
+                <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=400&q=80" class="w-full h-40 object-cover group-hover:scale-110 transition duration-500" alt="Textured">
+                <div class="absolute bottom-0 bg-black bg-opacity-70 w-full text-white text-center py-2 text-sm font-bold">4. Textured / Canvas</div>
+            </div>
+
+            <div onclick="selectStyle('Spot UV Gloss')" class="cursor-pointer group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 card-option">
+                <img src="https://images.unsplash.com/photo-1616628188859-7a11abb6fcc9?auto=format&fit=crop&w=400&q=80" class="w-full h-40 object-cover group-hover:scale-110 transition duration-500" alt="Spot UV">
+                <div class="absolute bottom-0 bg-black bg-opacity-70 w-full text-white text-center py-2 text-sm font-bold">5. Spot UV Gloss</div>
+            </div>
+
+            <div onclick="selectStyle('Vertical Design')" class="cursor-pointer group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 card-option">
+                <img src="https://images.unsplash.com/photo-1563821213-90d56b026610?auto=format&fit=crop&w=400&q=80" class="w-full h-40 object-cover group-hover:scale-110 transition duration-500" alt="Vertical">
+                <div class="absolute bottom-0 bg-black bg-opacity-70 w-full text-white text-center py-2 text-sm font-bold">6. Vertical Design</div>
+            </div>
+
+            <div onclick="selectStyle('Embossed/Letterpress')" class="cursor-pointer group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 card-option">
+                <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=400&q=80" class="w-full h-40 object-cover group-hover:scale-110 transition duration-500" alt="Embossed">
+                <div class="absolute bottom-0 bg-black bg-opacity-70 w-full text-white text-center py-2 text-sm font-bold">7. Embossed 3D</div>
+            </div>
+
+            <div onclick="selectStyle('Transparent / Plastic')" class="cursor-pointer group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 card-option">
+                <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=400&q=80" class="w-full h-40 object-cover group-hover:scale-110 transition duration-500" alt="Transparent">
+                <div class="absolute bottom-0 bg-black bg-opacity-70 w-full text-white text-center py-2 text-sm font-bold">8. Plastic/Transparent</div>
+            </div>
+
+            <div onclick="selectStyle('Square Cut')" class="cursor-pointer group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 card-option">
+                <img src="https://images.unsplash.com/photo-1559131668-f9b60b298493?auto=format&fit=crop&w=400&q=80" class="w-full h-40 object-cover group-hover:scale-110 transition duration-500" alt="Square">
+                <div class="absolute bottom-0 bg-black bg-opacity-70 w-full text-white text-center py-2 text-sm font-bold">9. Square Shape</div>
+            </div>
+
+            <div onclick="selectStyle('Kraft / Eco Friendly')" class="cursor-pointer group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 card-option">
+                <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=400&q=80" class="w-full h-40 object-cover group-hover:scale-110 transition duration-500" alt="Eco">
+                <div class="absolute bottom-0 bg-black bg-opacity-70 w-full text-white text-center py-2 text-sm font-bold">10. Eco Kraft Paper</div>
+            </div>
         </div>
 
         <div class="flex flex-col lg:flex-row gap-10">
             
             <div class="w-full lg:w-2/3 bg-white p-8 rounded-xl shadow-md border-t-4 border-cmykMagenta">
+                <h2 class="text-2xl font-bold text-darkBlue mb-6">Enter Details</h2>
+                
                 <form id="orderForm" onsubmit="sendToWhatsapp(event)">
                     
-                    <h3 class="text-xl font-bold text-darkBlue mb-4 flex items-center">
-                        <i class="fas fa-id-card-alt mr-2 text-premiumGold"></i> Card Information
-                    </h3>
-                    
+                    <input type="hidden" id="selectedStyleInput" value="Not Selected">
+
+                    <div id="styleDisplay" class="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded text-sm text-yellow-800 hidden">
+                        <i class="fas fa-check-circle mr-2"></i> Selected Style: <span id="styleName" class="font-bold"></span>
+                    </div>
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
                             <label class="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
@@ -82,25 +144,12 @@
                         </div>
                     </div>
 
-                    <div class="mb-8">
+                    <div class="mb-6">
                         <label class="block text-gray-700 text-sm font-bold mb-2">Office Address</label>
                         <textarea id="address" rows="2" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold" placeholder="Shop No. 12, Patiala..."></textarea>
                     </div>
 
-                    <h3 class="text-xl font-bold text-darkBlue mb-4 flex items-center border-t pt-6">
-                        <i class="fas fa-print mr-2 text-cmykCyan"></i> Printing Preferences
-                    </h3>
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div>
-                            <label class="block text-gray-700 text-sm font-bold mb-2">Paper Quality</label>
-                            <select id="paperType" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold">
-                                <option value="Standard Matte">Standard Matte</option>
-                                <option value="Premium Gloss">Premium Gloss</option>
-                                <option value="Textured Paper">Textured Paper</option>
-                                <option value="Gold Foil Accent">Gold Foil Accent</option>
-                            </select>
-                        </div>
                         <div>
                             <label class="block text-gray-700 text-sm font-bold mb-2">Quantity</label>
                             <select id="quantity" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold">
@@ -109,6 +158,10 @@
                                 <option value="500 Cards">500 Cards</option>
                                 <option value="1000 Cards">1000 Cards</option>
                             </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Additional Notes</label>
+                            <input type="text" id="notes" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold" placeholder="Specific color requirements etc.">
                         </div>
                     </div>
 
@@ -121,58 +174,74 @@
             </div>
 
             <div class="w-full lg:w-1/3 space-y-6">
-                
                 <div class="bg-darkBlue text-white p-6 rounded-xl shadow-lg">
                     <h4 class="font-serif text-xl font-bold mb-4 text-premiumGold">Next Steps</h4>
                     <ol class="list-decimal list-inside space-y-3 text-sm text-gray-300">
+                        <li>Click an image above to choose a style.</li>
                         <li>Fill out the form details.</li>
-                        <li>Click the "Send Order" button.</li>
-                        <li>Attach your <strong>Logo File</strong> directly in the WhatsApp chat.</li>
-                        <li>We will send you a digital proof for approval.</li>
+                        <li>Click "Send Order".</li>
+                        <li>Attach your <strong>Logo File</strong> in the WhatsApp chat.</li>
                     </ol>
                 </div>
-
-                <div class="bg-gray-100 p-6 rounded-xl border border-gray-200">
-                    <h4 class="font-bold text-gray-800 mb-2">Need Help?</h4>
-                    <p class="text-sm text-gray-600 mb-4">Call us if you have custom requirements.</p>
-                    <a href="tel:+919814741828" class="flex items-center text-darkBlue font-bold">
-                        <i class="fas fa-phone-alt mr-2"></i> 98147-41828
-                    </a>
+                 <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center">
+                    <p class="text-gray-500 text-sm mb-2">Need a custom quote?</p>
+                    <a href="tel:+919814741828" class="text-2xl font-bold text-darkBlue">98147-41828</a>
+                    <div class="mt-4 text-xs text-gray-400">
+                        Pen to Printers<br>
+                        A Brand by Partap Trading Company
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
 
     <script>
+        // Function to handle style selection
+        function selectStyle(styleName) {
+            // 1. Remove highlight from all cards
+            const cards = document.querySelectorAll('.card-option');
+            cards.forEach(card => card.classList.remove('selected-card'));
+
+            // 2. Add highlight to clicked card (event target workaround)
+            // Note: In simple HTML, clicking the div triggers this.
+            event.currentTarget.classList.add('selected-card');
+
+            // 3. Update Hidden Input
+            document.getElementById('selectedStyleInput').value = styleName;
+
+            // 4. Show Feedback Box
+            document.getElementById('styleDisplay').classList.remove('hidden');
+            document.getElementById('styleName').innerText = styleName;
+        }
+
+        // Function to send WhatsApp message
         function sendToWhatsapp(e) {
             e.preventDefault();
 
-            // 1. Get Values
+            const style = document.getElementById('selectedStyleInput').value;
             const name = document.getElementById('name').value;
             const designation = document.getElementById('designation').value;
             const company = document.getElementById('company').value;
             const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value;
             const address = document.getElementById('address').value;
-            const paperType = document.getElementById('paperType').value;
             const quantity = document.getElementById('quantity').value;
+            const notes = document.getElementById('notes').value;
 
-            // 2. Create Message
+            // Create Message
             const message = `*New Business Card Order*%0A%0A` +
+                            `*Selected Style:* ${style}%0A` +
+                            `------------------%0A` +
                             `*Name:* ${name}%0A` +
                             `*Role:* ${designation}%0A` +
                             `*Company:* ${company}%0A` +
                             `*Phone:* ${phone}%0A` +
                             `*Email:* ${email}%0A` +
                             `*Address:* ${address}%0A` +
-                            `------------------%0A` +
-                            `*Paper:* ${paperType}%0A` +
-                            `*Quantity:* ${quantity}%0A%0A` +
+                            `*Quantity:* ${quantity}%0A` +
+                            `*Notes:* ${notes}%0A%0A` +
                             `_(I will attach my logo image in the next message)_`;
 
-            // 3. Open WhatsApp
-            // Using your WhatsApp number: 9855940345
             const whatsappUrl = `https://wa.me/919855940345?text=${message}`;
             window.open(whatsappUrl, '_blank');
         }
