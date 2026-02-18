@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Pamphlets & Posters | Pen to Printers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cmykCyan: '#009FE3',
+                        cmykMagenta: '#E6007E',
+                        cmykYellow: '#FFED00',
+                        premiumGold: '#C5A059',
+                        darkBlue: '#0f172a',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .selected-item {
+            border: 4px solid #C5A059;
+            background-color: #fffbeb; /* Light yellow tint */
+            transform: scale(1.02);
+        }
+        .check-icon {
+            display: none;
+        }
+        .selected-item .check-icon {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <nav class="bg-darkBlue text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 hover:opacity-80 transition">
+                <i class="fas fa-arrow-left text-premiumGold"></i>
+                <span class="font-bold uppercase tracking-widest text-sm">Back to Home</span>
+            </a>
+            <div class="text-xl font-serif font-bold">Pen to <span class="text-premiumGold">Printers</span></div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-12 max-w-5xl">
+        
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-darkBlue font-serif mb-4">Marketing Materials</h1>
+            <p class="text-gray-500 text-lg">Select a product type to get started.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            
+            <div onclick="selectProduct('Pamphlet')" id="card-Pamphlet" class="product-card cursor-pointer bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 overflow-hidden border-2 border-transparent relative">
+                <div class="absolute top-4 right-4 bg-green-500 text-white rounded-full p-2 check-icon shadow-lg z-10">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="h-64 overflow-hidden bg-gray-100 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-90" alt="Pamphlet">
+                </div>
+                <div class="p-6 text-center">
+                    <h3 class="text-2xl font-bold text-darkBlue mb-2 uppercase tracking-wide">Pamphlet</h3>
+                    <div class="inline-block bg-blue-100 text-blue-800 text-sm px-4 py-1 rounded-full font-bold shadow-sm">
+                        <i class="fas fa-clock mr-1"></i> Production Time: 2 Days
+                    </div>
+                    <p class="text-gray-500 mt-4 text-sm">Trifold, Bifold, or Flyers. Perfect for mass distribution.</p>
+                </div>
+            </div>
+
+            <div onclick="selectProduct('Poster')" id="card-Poster" class="product-card cursor-pointer bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 overflow-hidden border-2 border-transparent relative">
+                <div class="absolute top-4 right-4 bg-green-500 text-white rounded-full p-2 check-icon shadow-lg z-10">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="h-64 overflow-hidden bg-gray-100 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-90" alt="Poster">
+                </div>
+                <div class="p-6 text-center">
+                    <h3 class="text-2xl font-bold text-darkBlue mb-2 uppercase tracking-wide">Poster</h3>
+                    <div class="inline-block bg-blue-100 text-blue-800 text-sm px-4 py-1 rounded-full font-bold shadow-sm">
+                        <i class="fas fa-clock mr-1"></i> Production Time: 2 Days
+                    </div>
+                    <p class="text-gray-500 mt-4 text-sm">Large format prints (A3, A2, A1) for high visibility.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bg-white p-8 md:p-12 rounded-xl shadow-lg border-t-4 border-premiumGold" id="orderFormSection">
+            <h2 class="text-2xl font-bold text-darkBlue mb-6 border-b pb-4">Order Details</h2>
+            
+            <form id="orderForm" onsubmit="sendToWhatsapp(event)">
+                
+                <input type="hidden" id="selectedProductInput" value="">
+
+                <div id="selectionWarning" class="hidden mb-6 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+                    <i class="fas fa-exclamation-circle mr-2"></i> Please select either Pamphlet or Poster above by clicking the image.
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Paper Size</label>
+                        <select id="size" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold">
+                            <option value="A4 (Standard)">A4 (Standard)</option>
+                            <option value="A3 (Large Poster)">A3 (Large Poster)</option>
+                            <option value="A2 (Extra Large)">A2 (Extra Large)</option>
+                            <option value="12x18 inches">12x18 inches</option>
+                            <option value="Custom Size">Custom Size</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Quantity</label>
+                        <select id="quantity" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold">
+                            <option value="50 Copies">50 Copies</option>
+                            <option value="100 Copies">100 Copies</option>
+                            <option value="500 Copies">500 Copies</option>
+                            <option value="1000 Copies">1000 Copies</option>
+                            <option value="2000+ (Bulk)">2000+ (Bulk)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                     <label class="block text-gray-700 text-sm font-bold mb-2">Paper Type / Folding Preference</label>
+                     <input type="text" id="paperType" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold" placeholder="e.g. Glossy Paper, Tri-fold, or Sticker Sheet">
+                </div>
+
+                <h3 class="text-lg font-bold text-gray-700 mt-8 mb-4">Your Contact Info</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Name / Company</label>
+                        <input type="text" id="name" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold" placeholder="Your Name" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
+                        <input type="tel" id="phone" class="w-full bg-gray-50 border border-gray-300 rounded px-4 py-3 focus:outline-none focus:border-premiumGold" placeholder="+91..." required>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-lg shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-3 text-xl">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function selectProduct(type) {
+            // Reset Styles
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.classList.remove('selected-item');
+            });
+
+            // Set Style for clicked item
+            document.getElementById('card-' + type).classList.add('selected-item');
+            
+            // Set Input Value
+            document.getElementById('selectedProductInput').value = type;
+            document.getElementById('selectionWarning').classList.add('hidden');
+            
+            // Scroll to form slightly
+            document.getElementById('orderFormSection').scrollIntoView({behavior: 'smooth'});
+        }
+
+        function sendToWhatsapp(e) {
+            e.preventDefault();
+
+            const product = document.getElementById('selectedProductInput').value;
+            
+            // Validation
+            if(!product) {
+                document.getElementById('selectionWarning').classList.remove('hidden');
+                window.scrollTo(0, 0);
+                return;
+            }
+
+            const size = document.getElementById('size').value;
+            const quantity = document.getElementById('quantity').value;
+            const paperType = document.getElementById('paperType').value;
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+
+            // Create Message
+            const message = `*New Order: ${product}*%0A` +
+                            `_(Production Time: ~2 Days)_%0A%0A` +
+                            `*Name:* ${name}%0A` +
+                            `*Phone:* ${phone}%0A` +
+                            `------------------%0A` +
+                            `*Size:* ${size}%0A` +
+                            `*Quantity:* ${quantity}%0A` +
+                            `*Specs:* ${paperType}%0A%0A` +
+                            `_I will send the design file in the next message._`;
+
+            const whatsappUrl = `https://wa.me/919855940345?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+
+</body>
+</html>
