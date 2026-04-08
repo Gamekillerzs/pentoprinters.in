@@ -31,6 +31,11 @@ export default function UploadPage() {
     event.preventDefault();
     setMessage("");
 
+    if (!customerName.trim()) {
+      setMessage("Please enter the customer name.");
+      return;
+    }
+
     if (!file) {
       setMessage("Please choose a file to upload.");
       return;
@@ -56,7 +61,8 @@ export default function UploadPage() {
     });
 
     if (!res.ok) {
-      setMessage("Could not submit order. Please fill all fields correctly.");
+      const errorData = (await res.json().catch(() => null)) as { error?: string } | null;
+      setMessage(errorData?.error || "Could not submit order. Please try again.");
       return;
     }
 

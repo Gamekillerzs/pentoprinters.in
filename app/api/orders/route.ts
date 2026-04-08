@@ -1,5 +1,3 @@
-import { mkdir, writeFile } from "node:fs/promises";
-import path from "node:path";
 import { NextRequest, NextResponse } from "next/server";
 import { createOrder, listOrders } from "@/lib/orderStore";
 
@@ -27,26 +25,21 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const uploadsDir = path.join(process.cwd(), "uploads");
-  await mkdir(uploadsDir, { recursive: true });
-
-  const extension = path.extname(file.name);
-  const uniqueName = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}${extension}`;
-  const fullPath = path.join(uploadsDir, uniqueName);
-
   const fileBuffer = Buffer.from(await file.arrayBuffer());
-  await writeFile(fullPath, fileBuffer);
+  const fileContentBase64 = fileBuffer.toString("base64");
 
   const order = createOrder({
     customerName,
     customerEmail,
     documentName: file.name,
+    fileContentBase64,
+    fileMimeType: file.type || "application/octet-stream",
     serviceName,
     printMode,
     paperQuality,
     quantity,
     size,
-    storedFileName: uniqueName
+    storedFileName: file.name
   });
 
   return NextResponse.json({ order }, { status: 201 });

@@ -1,5 +1,3 @@
-import { readFile } from "node:fs/promises";
-import path from "node:path";
 import { NextRequest, NextResponse } from "next/server";
 import { findOrderById } from "@/lib/orderStore";
 
@@ -13,21 +11,19 @@ export async function GET(
   }
 
   const order = findOrderById(params.id);
-  if (!order || !order.storedFileName) {
+  if (!order || !order.fileContentBase64) {
     return NextResponse.json({ error: "File not found for this order" }, { status: 404 });
   }
 
-  const filePath = path.join(process.cwd(), "uploads", order.storedFileName);
-
   try {
-    const fileBuffer = await readFile(filePath);
+    const fileBuffer = Buffer.from(order.fileContentBase64, "base64");
     return new NextResponse(fileBuffer, {
       headers: {
-        "Content-Type": "application/octet-stream",
+        "Content-Type": order.fileMimeType || "application/octet-stream",
         "Content-Disposition": `attachment; filename="${encodeURIComponent(order.documentName)}"`
       }
     });
   } catch {
-    return NextResponse.json({ error: "File not found on server" }, { status: 404 });
+    return NextResponse.json({ error: "File could not be prepared for download" }, { status: 500 });
   }
 }

@@ -5,6 +5,8 @@ export type PrintOrder = {
   customerName: string;
   customerEmail?: string;
   documentName: string;
+  fileContentBase64?: string;
+  fileMimeType?: string;
   serviceName: string;
   printMode: string;
   paperQuality: string;
@@ -28,6 +30,7 @@ if (!globalOrderStore.orders) {
       customerName: "Aarav Shah",
       customerEmail: "aarav@example.com",
       documentName: "Project Report.pdf",
+      fileMimeType: "application/pdf",
       serviceName: "Brochures & Magazines",
       printMode: "Color",
       paperQuality: "Premium",
@@ -41,6 +44,8 @@ if (!globalOrderStore.orders) {
       customerName: "Mia Carter",
       customerEmail: "mia@example.com",
       documentName: "Presentation Deck.pptx",
+      fileMimeType:
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       serviceName: "Business Cards",
       printMode: "Black & White",
       paperQuality: "Standard",
@@ -73,6 +78,8 @@ export function createOrder(input: {
   customerName: string;
   customerEmail?: string;
   documentName: string;
+  fileContentBase64?: string;
+  fileMimeType?: string;
   serviceName: string;
   printMode: string;
   paperQuality: string;
@@ -87,6 +94,8 @@ export function createOrder(input: {
     customerName: input.customerName,
     customerEmail: input.customerEmail,
     documentName: input.documentName,
+    fileContentBase64: input.fileContentBase64,
+    fileMimeType: input.fileMimeType,
     serviceName: input.serviceName,
     printMode: input.printMode,
     paperQuality: input.paperQuality,
